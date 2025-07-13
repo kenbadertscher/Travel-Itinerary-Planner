@@ -6,9 +6,29 @@
 //   typescript: true
 // });
 
+// Define a mock interface for development
+interface MockStripe {
+  webhooks: {
+    constructEvent: () => unknown;
+  };
+  checkout: {
+    sessions: {
+      create: (params: unknown) => Promise<{ url: string; id: string }>;
+    };
+  };
+}
+
 // Temporary mock stripe object for development
-export const stripe = {
+export const stripe: MockStripe = {
   webhooks: {
     constructEvent: () => ({}),
   },
-} as unknown;
+  checkout: {
+    sessions: {
+      create: async () => ({
+        url: "http://localhost:3000/mock-checkout-success",
+        id: "mock_session_id",
+      }),
+    },
+  },
+};
