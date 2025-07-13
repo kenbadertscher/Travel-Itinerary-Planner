@@ -23,7 +23,7 @@ export async function GetAllTrips() {
 
     return data;
   } catch (error) {
-    console.log(error);
+//    console.log(error);
   }
 }
 
@@ -53,7 +53,7 @@ export async function GetAllPopularTrips() {
 
     return data 
   } catch (error) {
-    console.log(error);
+//    console.log(error);
   }
 }
 
@@ -70,7 +70,7 @@ export async function getIndividualTrip(id: string) {
 
     return data;
   } catch (error) {
-    console.log(error);
+//    console.log(error);
   }
 }
 

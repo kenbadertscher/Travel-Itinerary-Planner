@@ -8,12 +8,8 @@ import { Navbar } from "@/components/HomePage/Navbar";
 export default async function Home() {
   const TripRaw = await GetAllTrips();
 
-  if (!TripRaw) {
-    return <div>No trips found.</div>;
-  }
-
-  // Ensure aiResponse.location is always the expected object or null
-  const Trip = TripRaw.map((trip) => ({
+  // Handle case where no trips exist or database call fails
+  const Trip = TripRaw ? TripRaw.map((trip) => ({
     ...trip,
     aiResponse: trip.aiResponse
       ? {
@@ -24,7 +20,7 @@ export default async function Home() {
               : trip.aiResponse.location,
         }
       : null,
-  }));
+  })) : [];
 
   return (
     <div>

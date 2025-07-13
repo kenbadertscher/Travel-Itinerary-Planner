@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 
 import credentials from "next-auth/providers/credentials";
 import { getUserByEmail } from "./data/user";
-import google from "next-auth/providers/google";
+// import google from "next-auth/providers/google";
 
 import { loginSchema } from "./FormsRelatedConfig/validationZod/loginUser";
 
@@ -12,10 +12,10 @@ export const runtime = "nodejs";
 
 export default {
   providers: [
-    google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
+    // google({
+    //   clientId: process.env.GOOGLE_CLIENT_ID,
+    //   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    // }),
     credentials({
       /**
        * This function is used to authorize a user with credentials.
